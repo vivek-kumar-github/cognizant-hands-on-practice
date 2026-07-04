@@ -1,0 +1,14 @@
+# 1. Understanding Recursive Algorithms
+Recursion is a programming technique where a method solves a problem by calling itself with smaller, modified inputs.A recursive function breaks a complex task down into two essential components:
+- The Base Case: The simplest possible input condition where the function stops calling itself and directly returns a value. Without a base case, recursion runs infinitely, resulting in a StackOverflowError.
+- The Recursive Case: The part of the function where the problem is sliced into a smaller sub-problem, and the function calls itself to solve that sub-problem.How Recursion Simplifies Financial ForecastingFinancial forecasting calculations (like compound interest or multi-year projections) are inherently iterative and sequential. Year $n$ depends entirely on the financial results of Year $n-1$.Recursion simplifies this by matching the natural mathematical definition of compounding:$$\text{Value}(n) = \text{Value}(n-1) \times (1 + \text{Growth Rate})$$Instead of writing complex loop tracking logic, recursion allows us to model future values directly through this mathematical relationship.
+---
+# 2.  Analysis & Optimization
+## Time and Space Complexity Analysis
+- Time Complexity: O(n) For a forecast period of $n$ years, the function calls itself exactly $n$ times. Each individual execution layer performs constant-time arithmetic operations (O(1)). Thus, the time scales linearly with the number of years.
+- Space Complexity: O(n) Every recursive call adds a new stack frame to the computer's system call stack to keep track of its local variables (currentGrowthRate, rateIndex). For a 5-year forecast, 5 frames sit on the stack. If you try to forecast 50,000 years out, this approach will consume significant memory and potentially trigger a stack overflow.
+---
+# 3. Optimizing to Prevent Excessive Computation
+While our simple single-branch compounding formula runs linearly ($O(n)$), complex financial simulations (like combining branching possibilities or calculating Fibonacci-like dependent cash flows) often degrade to exponential time ($O(2^n)$) due to redundant, repeating calculations.We can optimize recursion using two industry-standard techniques:
+- Optimization A: Memoization (Top-Down Dynamic Programming)Memoization caches the results of expensive function calls in a lookup table (like an array or a Hash Map). Before calculating the forecast for Year $k$, the function checks the cache. If Year $k$ was already computed, it instantly returns the cached value instead of recalculating it. This reduces deep branching recursion trees back down to clean, linear paths.
+- Optimization B: Tail Recursion / Iteration TransformationTo completely eliminate the $O(n)$ memory space risk, we can refactor the code to be tail-recursive or convert it into a standard iterative loop. A loop processes the compounding calculations entirely within a single memory frame.
