@@ -1,5 +1,5 @@
 package SettingUpJUnit;
-public class Calculator {
+class Calculator {
 
     public int add(int a, int b) {
         return a + b;
