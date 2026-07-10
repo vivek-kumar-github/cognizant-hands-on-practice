@@ -1,9 +1,9 @@
 package Mockito.VerifyingInteractions;
 
-import static org.mockito.Mockito.*;
-
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+
+import static org.mockito.Mockito.verify;
 
 public class MyServiceTest {
 

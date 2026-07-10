@@ -1,9 +1,10 @@
 package AssertionsInJUnit;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
 
-class AssertionsTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AssertionsTest {
 
     @Test
     public void testAssertions() {

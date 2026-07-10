@@ -1,12 +1,12 @@
 package Mockito.MockingandStubbing;
 
-import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-class MyServiceTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+
+public class MyServiceTest {
 
     @Test
     public void testExternalApi() {

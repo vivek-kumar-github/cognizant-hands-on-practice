@@ -1,21 +1,23 @@
 package ArrangeActAssert;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
-class CalculatorTest {
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class CalculatorTest {
 
     private Calculator calculator;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         // Setup code
         calculator = new Calculator();
         System.out.println("Setup: Calculator object created");
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         // Cleanup code
         calculator = null;
